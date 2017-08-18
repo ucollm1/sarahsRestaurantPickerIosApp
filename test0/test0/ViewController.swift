@@ -25,6 +25,7 @@ func returnProcCompletion(label: UILabel) -> (Data?, URLResponse?, Error?)-> Voi
                 label.text = "there was an error"
             } else {
                 label.text = String(data: data!, encoding: .utf8)
+                //label.text = "here"
             }
         }
     }
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
         clickCount = clickCount + 1
         //theLabel.text = String(returnTimes(multiplier: 2)(clickCount, 3))
         let sessionWithoutADelegate = URLSession.shared
-        let url = URL(string: "http://localhost/basicRestaurantList")!
+        let url = URL(string: "http://pure-lowlands-79224.herokuapp.com/basicRestaurantList")!
         let theTask = sessionWithoutADelegate.dataTask(with: url, completionHandler: returnProcCompletion(label: theLabel))
         theTask.resume()
         //theLabel.text = String(returnP  returnTimes(multiplier: 2)(clickCount, 3))
